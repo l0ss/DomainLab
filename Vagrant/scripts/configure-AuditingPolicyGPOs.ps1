@@ -1,7 +1,7 @@
 # Purpose: Installs the GPOs for the custom WinEventLog auditing policy.
 Write-Host "Configuring auditing policy GPOS..."
 $GPOName = 'Domain Controllers Enhanced Auditing Policy'
-$OU = "ou=Domain Controllers,dc=windomain,dc=local"
+$OU = "ou=Domain Controllers,dc=labco,dc=local"
 Write-Host "Importing $GPOName..."
 Import-GPO -BackupGpoName $GPOName -Path "c:\vagrant\resources\GPO\Domain_Controllers_Enhanced_Auditing_Policy" -TargetName $GPOName -CreateIfNeeded
 $gpLinks = $null
@@ -16,7 +16,7 @@ else
     Write-Host "GpLink $GPOName already linked on $OU. Moving On."
 }
 $GPOName = 'Servers Enhanced Auditing Policy'
-$OU = "ou=Servers,dc=windomain,dc=local"
+$OU = "ou=Servers,dc=labco,dc=local"
 Write-Host "Importing $GPOName..."
 Import-GPO -BackupGpoName $GPOName -Path "c:\vagrant\resources\GPO\Servers_Enhanced_Auditing_Policy" -TargetName $GPOName -CreateIfNeeded
 $gpLinks = $null
@@ -32,7 +32,7 @@ else
 }
 
 $GPOName = 'Workstations Enhanced Auditing Policy'
-$OU = "ou=Workstations,dc=windomain,dc=local" 
+$OU = "ou=Workstations,dc=labco,dc=local" 
 Write-Host "Importing $GPOName..."
 Import-GPO -BackupGpoName $GPOName -Path "c:\vagrant\resources\GPO\Workstations_Enhanced_Auditing_Policy" -TargetName $GPOName -CreateIfNeeded
 $gpLinks = $null

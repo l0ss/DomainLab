@@ -1,0 +1,1 @@
+c:\vagrant\scripts\Create-LabUsers.ps1 -Count 5000 -AddUpnSuffix -Company LabCo -CreateGroups -Domain labco.local -DomainController dc.labco.local -UpnSuffix labco.local
